@@ -2,10 +2,9 @@
  * TODO: switch to deque
  */
 
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
-import kotlin.collections.ArrayDeque;
 
 /**
  * Queues are FIFO - first in, first out, like a checkout line. They are used in algorithms where it is needed to keep
@@ -32,8 +31,10 @@ public class QueueExercise {
      * Stack behavior.
      */
     public Queue<String> createQueue(){
-        Queue<String> q = new LinkedList<String>();
-        return q;
+        Queue<String> queue = new ArrayDeque<>();
+
+        return queue;
+
     }
 
     /**
@@ -42,7 +43,7 @@ public class QueueExercise {
      * @return the length of queue.
      */
     public int getSize(Queue<String> queue){
-        return 0;
+        return queue.size();
     }
 
     /**
