@@ -10,6 +10,7 @@ public class ListExerciseTest {
     @BeforeClass
     public static void setUp(){
         le = new ListExercise();
+        
     }
 
     /**
@@ -18,6 +19,7 @@ public class ListExerciseTest {
     @Test
     public void createListTest1(){
         List<Integer> list = le.createList();
+        
         Assert.assertNotNull(list);
     }
 
@@ -86,7 +88,8 @@ public class ListExerciseTest {
      */
     public @Test void removeFromListTest1(){
         List<Integer> list = le.createList();
-        le.addToList(list, 1);
+        // le.addToList(list, 1);
+        list.add(1);
         le.removeFromList(list, 0);
         Assert.assertFalse(list.contains(1));
         Assert.assertTrue(le.getSize(list) == 0);
@@ -123,6 +126,7 @@ public class ListExerciseTest {
      */
     public @Test void updatePositionTest2(){
         List<Integer> list = le.createList();
+        
         le.addToList(list, 1);
         le.addToList(list, 2);
         le.updateAtPosition(list, 1, 3);
