@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.jetty.util.Index;
 
@@ -45,6 +47,9 @@ public class ListExercise {
      */
     public int getSize(List<Integer> list){
         return list.size();
+    }
+    public void testing() {
+        Set<Integer> netSet = new HashSet<Integer>();
     }
 
     /**
