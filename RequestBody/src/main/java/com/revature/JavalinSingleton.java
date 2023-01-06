@@ -43,22 +43,22 @@ public class JavalinSingleton {
         app.post("/problem2", ctx -> {
                //implement logic here
 
-                    //retrieve the json string from the request body
-                    String jsonString = ctx.body();
+                //retrieve the json string from the request body
+                String jsonString = ctx.body();
 
-                    //utilize jackson to convert the json string to a user object
-                    ObjectMapper om = new ObjectMapper();
-                    Song song = om.readValue(jsonString, Song.class);
-    
-    
-                    //we need to let the request know we will send back json in the body
-                    ctx.contentType("application/json"); 
-                    song.setArtistName("Beatles");
-                    
-                    //utilize jackson convert back the user object to a json string
-                    String jsonStringToBeReturned = om.writeValueAsString(song);
-    
-                    //return the json string in the response body
+                //utilize jackson to convert the json string to a user object
+                ObjectMapper om = new ObjectMapper();
+                Song song = om.readValue(jsonString, Song.class);
+
+
+                //we need to let the request know we will send back json in the body
+                ctx.contentType("application/json"); 
+                song.setArtistName("Beatles");
+                
+                //utilize jackson convert back the user object to a json string
+                String jsonStringToBeReturned = om.writeValueAsString(song);
+
+                //return the json string in the response body
                     ctx.result(jsonStringToBeReturned);
         });
 
