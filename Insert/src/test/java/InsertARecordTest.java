@@ -20,7 +20,7 @@ public class InsertARecordTest {
     public void beforeEach(){
         try {
             Connection connection = ConnectionUtil.getConnection();
-            String sql = "CREATE TABLE song (Title varchar(100), Artist varchar(100));";
+            String sql = "CREATE TABLE song (title varchar(100), artist varchar(100));";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.executeUpdate();
         } catch (SQLException e) {
