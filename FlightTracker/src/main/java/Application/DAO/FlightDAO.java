@@ -22,7 +22,7 @@ public class FlightDAO {
 
 
     /**
-     * TODO: Retrieve all flights from the flights table.
+     * TODO: Retrieve all flights from the flight table.
      *
      * You only need to change the sql String and set preparedStatement parameters.
      *
@@ -33,7 +33,8 @@ public class FlightDAO {
         List<Flight> flights = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
+
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -42,7 +43,7 @@ public class FlightDAO {
                 flights.add(flight);
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return flights;
     }
@@ -65,7 +66,8 @@ public class FlightDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
+            
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setString and setInt methods here.
@@ -77,7 +79,7 @@ public class FlightDAO {
                 return flight;
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
@@ -106,19 +108,20 @@ public class FlightDAO {
         try {
             //Write SQL logic here. When inserting, you only need to define the departure_city and arrival_city
             //values (two columns total!)
-            String sql = "change me!" ;
+            String sql = "change me" ;
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //write preparedStatement's setString and setInt methods here.
+
 
             preparedStatement.executeUpdate();
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
             if(pkeyResultSet.next()){
                 int generated_flight_id = (int) pkeyResultSet.getLong(1);
-                return new Flight(generated_flight_id, flight.departure_city, flight.departure_city);
+                return new Flight(generated_flight_id, flight.getDeparture_city(), flight.getArrival_city());
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
@@ -144,14 +147,15 @@ public class FlightDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write PreparedStatement setString and setInt methods here.
 
+
             preparedStatement.executeUpdate();
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
     }
 
@@ -177,10 +181,11 @@ public class FlightDAO {
         List<Flight> flights = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write PreparedStatement setString and setInt methods here.
+
 
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -189,7 +194,7 @@ public class FlightDAO {
                 flights.add(flight);
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return flights;
     }

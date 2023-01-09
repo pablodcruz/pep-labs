@@ -32,7 +32,7 @@ public class BookDAO {
         List<Book> books = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
@@ -43,7 +43,7 @@ public class BookDAO {
                 books.add(book);
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return books;
     }
@@ -57,7 +57,7 @@ public class BookDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setInt method here.
@@ -71,7 +71,7 @@ public class BookDAO {
                 return book;
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
@@ -87,7 +87,7 @@ public class BookDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-            String sql = "change me!" ;
+            String sql = "change me" ;
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setString and setInt methods here.
@@ -95,7 +95,7 @@ public class BookDAO {
             preparedStatement.executeUpdate();
             return book;
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return null;
     }
@@ -109,7 +109,7 @@ public class BookDAO {
         List<Book> books = new ArrayList<>();
         try {
             //Write SQL logic here
-            String sql = "change me!";
+            String sql = "change me";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setInt method here.
@@ -123,7 +123,7 @@ public class BookDAO {
                 books.add(book);
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
         return books;
     }
