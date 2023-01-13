@@ -153,19 +153,19 @@ public class FlightDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
 
-        // String sql = "UPDATE flight SET departure_city = ?, arrival_city = ? WHERE flight_id = ?";
-        //  PreparedStatement preparedStatement = connection.prepareStatement(sql);
-        //  preparedStatement.setString(1, flight.getDeparture_city());
-        //  preparedStatement.setString(2, flight.getArrival_city());
-        //  preparedStatement.setInt(3, id);
-
-
-         String sql = "UPDATE flights SET flight_id = ?, departure_city = ?, arrival_city = ? WHERE flight_id = ?";
+        String sql = "UPDATE flight SET departure_city = ?, arrival_city = ? WHERE flight_id = ?";
          PreparedStatement preparedStatement = connection.prepareStatement(sql);
-         preparedStatement.setInt(1, flight.getFlight_id());
-         preparedStatement.setString(2, flight.getDeparture_city());
-         preparedStatement.setString(3, flight.getArrival_city());
-         preparedStatement.setInt(4, id);
+         preparedStatement.setString(1, flight.getDeparture_city());
+         preparedStatement.setString(2, flight.getArrival_city());
+         preparedStatement.setInt(3, id);
+
+
+        //  String sql = "UPDATE flights SET flight_id = ?, departure_city = ?, arrival_city = ? WHERE flight_id = ?";
+        //  PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        //  preparedStatement.setInt(1, flight.getFlight_id());
+        //  preparedStatement.setString(2, flight.getDeparture_city());
+        //  preparedStatement.setString(3, flight.getArrival_city());
+        //  preparedStatement.setInt(4, id);
 
 
 
