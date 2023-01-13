@@ -122,7 +122,7 @@ public class FlightDAO {
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
             if(pkeyResultSet.next()){
                 int generated_flight_id = (int) pkeyResultSet.getLong(1);
-                Flight myFlight = new Flight(generated_flight_id, flight.departure_city, flight.departure_city);
+                Flight myFlight = new Flight(generated_flight_id, flight.departure_city, flight.getArrival_city());
                 System.out.println(myFlight.toString());
                 return myFlight;
             }
