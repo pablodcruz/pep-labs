@@ -99,8 +99,10 @@ public class FlightServiceTest {
         allFlightsReturned.add(new Flight(803, "tampa", "reston"));
         allFlightsReturned.add(new Flight(804, "tampa", "dallas"));
         allFlightsReturned.add(new Flight(805, "dallas", "morgantown"));
+
         Flight f801 = new Flight( "dallas", "morgantown");
         Flight expectedFlight = new Flight(801, "dallas", "morgantown");
+        
         Mockito.when(mockFlightDAO.getAllFlights()).thenReturn(allFlightsReturned);
         Mockito.when(mockFlightDAO.getFlightById(801)).thenReturn(f801);
         Assert.assertEquals(flightService.updateFlight(801, f801), expectedFlight);
