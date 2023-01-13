@@ -153,13 +153,11 @@ public class FlightDAO {
         try {
 
         String sql = "UPDATE flight SET departure_city = ? WHERE flight_id = ?";
-         PreparedStatement preparedStatement = connection.prepareStatement(sql);
-         preparedStatement.setString(1, flight.getDeparture_city());
-        //  preparedStatement.setString(2, flight.getArrival_city());
-         preparedStatement.setInt(2, id);
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setString(1, flight.getDeparture_city());
+        preparedStatement.setInt(2, id);
 
-
-            preparedStatement.executeUpdate();
+        preparedStatement.executeUpdate();
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
@@ -188,11 +186,8 @@ public class FlightDAO {
         try {
             //Write SQL logic here
             String sql = "SELECT * FROM flight WHERE departure_city = ? AND arrival_city = ?;"; 
-            
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-
             //write PreparedStatement setString and setInt methods here.
-
             preparedStatement.setString(1, departure_city);
             preparedStatement.setString(2, arrival_city);
 
