@@ -33,11 +33,7 @@ public class FlightDAO {
         List<Flight> flights = new ArrayList<>();
         try {
             //Write SQL logic here
-<<<<<<< HEAD
             String sql = "SELECT * FROM flight";
-=======
-            String sql = "change me";
->>>>>>> origin/FlightTracker
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
@@ -70,13 +66,8 @@ public class FlightDAO {
         Connection connection = ConnectionUtil.getConnection();
         try {
             //Write SQL logic here
-<<<<<<< HEAD
             String sql = "SELECT * FROM flight WHERE flight_id = ?";
 
-=======
-            String sql = "change me";
-            
->>>>>>> origin/FlightTracker
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write preparedStatement's setString and setInt methods here.
@@ -118,13 +109,9 @@ public class FlightDAO {
         try {
             //Write SQL logic here. When inserting, you only need to define the departure_city and arrival_city
             //values (two columns total!)
-<<<<<<< HEAD
 
             String sql = "INSERT INTO flight (departure_city, arrival_city) VALUES (?, ?)";
 
-=======
-            String sql = "change me" ;
->>>>>>> origin/FlightTracker
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //write preparedStatement's setString and setInt methods here.
@@ -136,13 +123,7 @@ public class FlightDAO {
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
             if(pkeyResultSet.next()){
                 int generated_flight_id = (int) pkeyResultSet.getLong(1);
-<<<<<<< HEAD
-                Flight myFlight = new Flight(generated_flight_id, flight.departure_city, flight.getArrival_city());
-                System.out.println(myFlight.toString());
-                return myFlight;
-=======
                 return new Flight(generated_flight_id, flight.getDeparture_city(), flight.getArrival_city());
->>>>>>> origin/FlightTracker
             }
         }catch(SQLException e){
             System.out.println(e.getMessage());
@@ -170,12 +151,6 @@ public class FlightDAO {
     public void updateFlight(int id, Flight flight){
         Connection connection = ConnectionUtil.getConnection();
         try {
-<<<<<<< HEAD
-=======
-            //Write SQL logic here
-            String sql = "change me";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
->>>>>>> origin/FlightTracker
 
         String sql = "UPDATE flight SET departure_city = ? WHERE flight_id = ?";
          PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -212,21 +187,14 @@ public class FlightDAO {
         List<Flight> flights = new ArrayList<>();
         try {
             //Write SQL logic here
-<<<<<<< HEAD
             String sql = "SELECT * FROM flight WHERE departure_city = ? AND arrival_city = ?;"; 
             
-=======
-            String sql = "change me";
->>>>>>> origin/FlightTracker
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             //write PreparedStatement setString and setInt methods here.
 
-<<<<<<< HEAD
             preparedStatement.setString(1, departure_city);
             preparedStatement.setString(2, arrival_city);
-=======
->>>>>>> origin/FlightTracker
 
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
