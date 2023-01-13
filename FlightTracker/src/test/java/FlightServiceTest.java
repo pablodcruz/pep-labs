@@ -101,6 +101,7 @@ public class FlightServiceTest {
         allFlightsReturned.add(new Flight(805, "dallas", "morgantown"));
 
         Flight f801 = new Flight( "dallas", "morgantown");
+        System.out.println("f801 id: " + f801.toString());
         Flight expectedFlight = new Flight(801, "dallas", "morgantown");
         
         Mockito.when(mockFlightDAO.getAllFlights()).thenReturn(allFlightsReturned);

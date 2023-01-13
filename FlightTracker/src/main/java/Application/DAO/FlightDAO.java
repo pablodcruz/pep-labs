@@ -115,7 +115,6 @@ public class FlightDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             //write preparedStatement's setString and setInt methods here.
-            
             preparedStatement.setString(1, flight.getDeparture_city());
             preparedStatement.setString(2, flight.getArrival_city());
 
@@ -123,7 +122,9 @@ public class FlightDAO {
             ResultSet pkeyResultSet = preparedStatement.getGeneratedKeys();
             if(pkeyResultSet.next()){
                 int generated_flight_id = (int) pkeyResultSet.getLong(1);
-                return new Flight(generated_flight_id, flight.departure_city, flight.departure_city);
+                Flight myFlight = new Flight(generated_flight_id, flight.departure_city, flight.departure_city);
+                System.out.println(myFlight.toString());
+                return myFlight;
             }
         }catch(SQLException e){
             e.printStackTrace();
@@ -151,18 +152,17 @@ public class FlightDAO {
     public void updateFlight(int id, Flight flight){
         Connection connection = ConnectionUtil.getConnection();
         try {
-            //Write SQL logic here
-            String sql = "UPDATE flight SET departure_city = ?, arrival_city = ? WHERE flight_id = ?";
+         //Write SQL logic here
+         String sql = "UPDATE flight SET departure_city = ?, arrival_city = ? WHERE flight_id = ?";
 
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+         PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            //write PreparedStatement setString and setInt methods here.
+         //write PreparedStatement setString and setInt methods here.
 
-            preparedStatement.setString(1, flight.getDeparture_city());
-            preparedStatement.setString(2, flight.getArrival_city());
+         preparedStatement.setString(1, flight.getDeparture_city());
+         preparedStatement.setString(2, flight.getArrival_city());
 
-            preparedStatement.setInt(3, id);
-
+         preparedStatement.setInt(3, id);
             preparedStatement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
