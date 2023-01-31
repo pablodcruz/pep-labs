@@ -1,0 +1,1 @@
+SELECT id, student_name FROM student INNER JOIN class ON class.id = student.id;
